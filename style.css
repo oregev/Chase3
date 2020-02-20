@@ -116,6 +116,8 @@ hr {
                         /* Start screen */
 #start-scr {
     background-image: radial-gradient(turquoise, rgb(64, 224, 104));
+    background-image: url("images/startbg.png");
+    background-size: cover;
     /* background-color: turquoise; */
     border: 5px solid #666;
     flex-direction: column;
@@ -125,7 +127,7 @@ hr {
     /* width: 80%; */
     /* height: 80%; */
     padding: 10px 30px;
-    background-color: rgb(67, 189, 142);
+    background-color: rgba(67, 189, 142, 0.2);
     border: 5px solid #666;
     border-radius: 10%;
     text-align: center;
@@ -177,7 +179,7 @@ hr {
         transform: scale(3);
     }
     50% {
-        transform: scale(4);
+        transform: scale(3.5);
     }
 }
 
@@ -185,8 +187,9 @@ hr {
 #choser-scr {
     top: 0;
     left: 0;
-    /* background-color: turquoise; */
     background-image: radial-gradient(turquoise, rgb(64, 224, 104));
+    background-image: url("images/choosebg.png");
+    background-size: cover;
     border: 5px solid #666;
     display: none;
     flex-direction: column;
@@ -203,7 +206,7 @@ hr {
 #grid-select {
     margin-bottom: 20px;
     font-size: 2rem;
-    /* width: 80%; */
+    width: 150px;
     height: 50px;
     /* background-color: tomato; */
     appearance: none;
@@ -234,16 +237,14 @@ hr {
 
                         /* Game screen */
 #game-scr {
-    /* min-height: 400px; */
-    background-color: rgb(146, 32, 146);
     display: none;
 }
 #game-area {
     position: relative;
     height: 100%;
     width: 100%;
-    background-color: thistle;
-    background-image: radial-gradient(thistle, rgb(146, 32, 146),  rgb(229, 153, 229));
+    background-image: url("images/gamebg.jpg");
+    background-size: cover;
 }
 #ready-scr {
     display: none;
@@ -264,11 +265,10 @@ hr {
     max-width: 800px;
     min-height: 300px;
     max-height: 800px;
-    /* background-color: wheat; */
     display: grid;
     justify-items: center;
     align-items: center;
-    border: 5px solid #ddd;
+    border: 5px solid #AAA;
     border-radius: 5%;
 }
 .padBtn {
@@ -276,7 +276,7 @@ hr {
     height: 80%;
     opacity: 0.6;
     background-color: yellowgreen;
-    border: 5px solid #ddd;
+    border: 5px solid #666;
     border-radius: 10%;
 }
 
