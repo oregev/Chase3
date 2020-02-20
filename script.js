@@ -212,6 +212,8 @@ const createWorld = () => {
     choserScr.style.display="none";
     gameScr.style.display="flex";
     gridWidth = parseInt(document.getElementById('grid-select').value);
+    // console.log(document.getElementById("choser-form"));
+    // console.log(document.getElementsByClassName("selector"));
     switch(gridWidth) {
         case 2: {
             boardSize = 4; break;

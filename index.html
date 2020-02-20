@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <audio preload ="none" src="">
+        <source src="sounds/gameMusic2.mp3" type="audio/mp3">
+        <source src="sounds/frog.mp3" type="audio/mp3">
+        <source src="ounds/padSound1" type="audio/mp3">
+        <source src="sounds/winMusic2" type="audio/mp3">
+        <source src="sounds/loseMusic2" type="audio/mp3">
+    </audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,14 +72,33 @@
                                 <!-- Choose Screen-->
         <div id="choser-scr" class="centerIt">
             <h2>CHOOSE GRID SIZE</h2>
-            <form id="choser-form">
+            <form id="choser-form" onsubmit="createWorld()">
                 <select name="grid-size" id="grid-select">
                     <option value="2">2 x 2</option>
                     <option value="3">3 x 3</option>
                     <option value="4">4 x 4</option>
                 </select>
+                <!-- <div id="grid-select" class="centerIt">
+                    <div class="centerIt selector">
+                        <input type="radio" name="size" id="2x2" value="2">
+                        <label for="2x2">2 x 2</label>
+                    </div>
+                    <div class="centerIt selector">
+                        <input type="radio" name="size" id="3x3" value="3">
+                        <label for="3x3">3 x 3</label>
+                    </div>
+                    <div class="centerIt selector">
+                        <input type="radio" name="size" id="4x4" value="4">
+                        <label for="4x4">4 x 4</label>
+                    </div> 
+                </div>-->
+                
+                
+                
+                
+                
             </form>
-            <!-- <button id="submit-btn" type="button" onclick="createWorld()">START</button> -->
+            <!-- <input id="submit-btn" type="submit" onclick="createWorld()">START</input> -->
             <button id="start-btn" onclick="createWorld()"><i class="fa fa-caret-right"></i></button>
         </div>
 

@@ -1,3 +1,7 @@
+#preload-01 { background-image: url("images/choosebg.png");}
+#preload-02 { background-image: url("images/choosebg.png");}
+#preload-03 { background-image: url("images/gamebg.jpg");;}
+
 * {
     margin: 0;
     padding: 0;
@@ -115,17 +119,13 @@ hr {
 
                         /* Start screen */
 #start-scr {
-    background-image: radial-gradient(turquoise, rgb(64, 224, 104));
     background-image: url("images/startbg.png");
     background-size: cover;
-    /* background-color: turquoise; */
     border: 5px solid #666;
     flex-direction: column;
     justify-content: space-around;
 }
 #welcome-msg {
-    /* width: 80%; */
-    /* height: 80%; */
     padding: 10px 30px;
     background-color: rgba(67, 189, 142, 0.2);
     border: 5px solid #666;
@@ -187,7 +187,6 @@ hr {
 #choser-scr {
     top: 0;
     left: 0;
-    background-image: radial-gradient(turquoise, rgb(64, 224, 104));
     background-image: url("images/choosebg.png");
     background-size: cover;
     border: 5px solid #666;
@@ -206,12 +205,24 @@ hr {
 #grid-select {
     margin-bottom: 20px;
     font-size: 2rem;
-    width: 150px;
-    height: 50px;
-    /* background-color: tomato; */
-    appearance: none;
-    
+    width: 90%;
+    margin: auto;
+    height: 100px;
+    appearance: none;  
 }
+/* .selector {
+    width: 33%;
+    flex-direction: column;
+}
+.selector input {
+    
+    transform: scale(2);
+}
+.selector label {
+    margin-top: 20px;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+} */
 #grid-select:focus {
     outline: none;
 }
@@ -220,7 +231,6 @@ hr {
     font-size: 2rem;
     width: 80%;
     height: 50px;
-    /* animation: 0.5s btn2 infinite; */
 }
 /* @keyframes btn2 {
     0% {
