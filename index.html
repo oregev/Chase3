@@ -46,7 +46,8 @@
         <p>if you liked the game<br>
         or you wanna suggest an improvment<br>
     please contact me.</p>
-        <p>Email</p>
+        <a target="_blank" href="mailto:darklightusa@gmail.com">darklightusa@gmail.com</a>
+        <br>
         
         <button onclick="removeScr(contact)"><i class="fa fa-close"></i></button>
     </div>
@@ -54,8 +55,10 @@
                                 <!-- Start Screen-->
         <div id="start-scr" class="centerIt">
             <div id="welcome-msg">
-                <h2>WELCOME<br>TO<br>CHASE</h2>
-                <button id="start-btn" onclick="removeStartScr()">PRESS ME</button>
+                <h2>WELCOME<br>TO<br>CHASE</h2>     
+            </div>
+            <div>
+                <button id="start-btn" onclick="removeStartScr()"><i class="fa fa-caret-right"></i></button>
             </div>
         </div>
 
@@ -69,7 +72,8 @@
                     <option value="4">4 x 4</option>
                 </select>
             </form>
-            <button id="submit-btn" type="button" onclick="createWorld()">START</button>
+            <!-- <button id="submit-btn" type="button" onclick="createWorld()">START</button> -->
+            <button id="start-btn" onclick="createWorld()"><i class="fa fa-caret-right"></i></button>
         </div>
 
                                 <!-- Game Screen-->

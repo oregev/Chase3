@@ -57,7 +57,7 @@ main {
     top: 12vh;
     border-radius: 10%;
     width: 200px;
-    padding: 10px;
+    padding: 5px;
     background-color:  rgb(109, 175, 170);
     border: 5px solid teal;
     
@@ -85,10 +85,10 @@ hr {
     height: 75%;
     top: 12%;
     left: 5%;
-    border-radius: 10%;
+    border-radius: 30px;
     border: 5px solid #666;
     text-align: center;
-    line-height: 2;
+    line-height: 1.5;
     display: none;
     
 }
@@ -101,6 +101,7 @@ hr {
     transform: scale(1.2);
 }
 #about button, #contact button {
+    margin-top: 10px;
     border: none;
     background-color: transparent;
 }
@@ -114,33 +115,45 @@ hr {
 
                         /* Start screen */
 #start-scr {
-    background-color: turquoise;
+    background-image: radial-gradient(turquoise, rgb(64, 224, 104));
+    /* background-color: turquoise; */
     border: 5px solid #666;
+    flex-direction: column;
+    justify-content: space-around;
 }
 #welcome-msg {
-    width: 80%;
-    height: 80%;
+    /* width: 80%; */
+    /* height: 80%; */
+    padding: 10px 30px;
     background-color: rgb(67, 189, 142);
     border: 5px solid #666;
+    border-radius: 10%;
     text-align: center;
+    box-shadow: 0px 0px 15px 0px;
 }
 #welcome-msg h2 {
     line-height: 2;
     font-size: 2.5rem;
     color: white;
-    text-shadow: 0px 0px 2px black;
+    text-shadow: 0px -2px 2px black;
 }
 #welcome-msg p {
     line-height: 1.5;
 }
 #start-btn {
-    margin-top: 10px;
-    width: 150px;
-    height: 50px;
-    border-radius: 10px;
-    border: none;
+    margin-top: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    
+    border: 5px solid rgb(127, 123, 196);
     background-color: rgb(83, 71, 255);
     font-size: 1rem;
+    animation: 0.5s btn infinite ;
+}
+#start-btn i {
+    transform: scale(3);
+    animation: 0.5s playIcon infinite ;
 }
 #start-btn:hover {
     opacity: 50%;
@@ -149,37 +162,79 @@ hr {
     background-color: black;
     color: white;
 }
+@keyframes btn {
+    0% {
+        width: 70px;
+        height: 70px; 
+    }
+    50% {
+        width: 75px;
+        height: 75px; 
+    }
+}
+@keyframes playIcon {
+    0% {
+        transform: scale(3);
+    }
+    50% {
+        transform: scale(4);
+    }
+}
 
                         /* Chooser screen */
 #choser-scr {
     top: 0;
     left: 0;
-    background-color: turquoise;
+    /* background-color: turquoise; */
+    background-image: radial-gradient(turquoise, rgb(64, 224, 104));
     border: 5px solid #666;
     display: none;
     flex-direction: column;
 }
+#choser-scr h2 {
+    text-shadow: 0px 0px 10px white;
+}
 #choser-form {
-    width: 200px;
+    width: 100%;
     height: 100px;
     margin: 20px;
+    
 }
 #grid-select {
     margin-bottom: 20px;
     font-size: 2rem;
-    width: 80%;
+    /* width: 80%; */
     height: 50px;
+    /* background-color: tomato; */
     appearance: none;
+    
 }
+#grid-select:focus {
+    outline: none;
+}
+
 #submit-btn {
     font-size: 2rem;
     width: 80%;
     height: 50px;
+    /* animation: 0.5s btn2 infinite; */
 }
+/* @keyframes btn2 {
+    0% {
+        width: 80%;
+        height: 50px; 
+    }
+    50% {
+        width: 85%;
+        height: 55px; 
+    }
+} */
+
+
 
                         /* Game screen */
 #game-scr {
-    min-height: 400px;
+    /* min-height: 400px; */
     background-color: rgb(146, 32, 146);
     display: none;
 }
@@ -205,10 +260,10 @@ hr {
     z-index: 2;
 }
 #board {
-    min-width: 350px;
-    max-width: 650px;
-    min-height: 350px;
-    max-height: 650px;
+    min-width: 300px;
+    max-width: 800px;
+    min-height: 300px;
+    max-height: 800px;
     /* background-color: wheat; */
     display: grid;
     justify-items: center;
