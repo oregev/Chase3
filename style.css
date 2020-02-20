@@ -100,6 +100,10 @@ hr {
     padding: 10px;
     transform: scale(1.2);
 }
+#about button, #contact button {
+    border: none;
+    background-color: transparent;
+}
 #about h2 {
     font-size: 40px;
 }
@@ -124,16 +128,18 @@ hr {
     font-size: 2.5rem;
     color: white;
     text-shadow: 0px 0px 2px black;
-    margin-bottom: 50px;
 }
 #welcome-msg p {
     line-height: 1.5;
-    margin-bottom: 10px;
 }
 #start-btn {
-    width: 50px;
+    margin-top: 10px;
+    width: 150px;
     height: 50px;
-    border-radius: 50%;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(83, 71, 255);
+    font-size: 1rem;
 }
 #start-btn:hover {
     opacity: 50%;
