@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.centerIt { /* centers elments and content */
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+button:focus { /* removes blue frame from buttons */
+    outline: none;
+}
+body {
+    height: 100vh;
+}
+header {
+    background-color: rgb(123, 104, 206);
+    display: flex;
+}
+header, footer {
+    height: 10vh;
+}
+h1 {
+    color: white;
+    font-size: 1.6rem;
+    letter-spacing: 6px;
+}
+#start-scr, #choser-scr, #game-scr, #win-scr, #lose-scr {
+    height: 100%;
+    width: 100%;
+    border: 5px solid #666;
+} 
+#replay-container, #heading-container, #menu-container {
+    width: 33.3%;
+    height: 100%;
+}
+#replay, #replay i, #menu-btn, #menu-btn i {
+    background-color: transparent;
+    border: none;
+    color: white;
+    transform: scale(1.6);
+}
+main {
+    height: 80vh;
+    display: flex;
+}
+
+                        /* manu screen */
+#menu {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    right: 10px;
+    top: 12vh;
+    border-radius: 10%;
+    width: 200px;
+    padding: 10px;
+    background-color:  rgb(109, 175, 170);
+    border: 5px solid teal;
+    
+}
+#menu button {
+    width: 100%;
+    text-align: center;
+    color: white;
+    height: 50px;
+    font-size: 1.5rem;
+    border: none;
+    background-color: transparent;
+}
+hr {
+    margin: auto;
+    width: 80%;
+}
+#about, #contact {
+    z-index: 3;
+    padding: 10px;
+    background-color: thistle;
+    opacity: 0.9;
+    position: fixed;
+    width: 90%;
+    height: 75%;
+    top: 12%;
+    left: 5%;
+    border-radius: 10%;
+    border: 5px solid #666;
+    text-align: center;
+    line-height: 2;
+    display: none;
+    
+}
+#about i, #contact i {
+    margin-top: 20px;
+    align-self: flex-start;
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    transform: scale(1.2);
+}
+#about h2 {
+    font-size: 40px;
+}
+#contact p {
+    font-size: 20px;
+}
+
+                        /* Start screen */
+#start-scr {
+    background-color: turquoise;
+    border: 5px solid #666;
+}
+#welcome-msg {
+    width: 80%;
+    height: 80%;
+    background-color: rgb(67, 189, 142);
+    border: 5px solid #666;
+    text-align: center;
+}
+#welcome-msg h2 {
+    line-height: 2;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 0px 0px 2px black;
+    margin-bottom: 50px;
+}
+#welcome-msg p {
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+#start-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#start-btn:hover {
+    opacity: 50%;
+}
+#start-btn:active {
+    background-color: black;
+    color: white;
+}
+
+                        /* Chooser screen */
+#choser-scr {
+    top: 0;
+    left: 0;
+    background-color: turquoise;
+    border: 5px solid #666;
+    display: none;
+    flex-direction: column;
+}
+#choser-form {
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+}
+#grid-select {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    width: 80%;
+    height: 50px;
+    appearance: none;
+}
+#submit-btn {
+    font-size: 2rem;
+    width: 80%;
+    height: 50px;
+}
+
+                        /* Game screen */
+#game-scr {
+    min-height: 400px;
+    background-color: rgb(146, 32, 146);
+    display: none;
+}
+#game-area {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: thistle;
+    background-image: radial-gradient(thistle, rgb(146, 32, 146),  rgb(229, 153, 229));
+}
+#ready-scr {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    
+}
+#ready-msg{
+    font-size: 5rem;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 0px 0px 10px black;
+    z-index: 2;
+}
+#board {
+    min-width: 350px;
+    max-width: 650px;
+    min-height: 350px;
+    max-height: 650px;
+    /* background-color: wheat; */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border: 5px solid #ddd;
+    border-radius: 5%;
+}
+.padBtn {
+    width: 80%;
+    height: 80%;
+    opacity: 0.6;
+    background-color: yellowgreen;
+    border: 5px solid #ddd;
+    border-radius: 10%;
+}
+
+                        /* win screen */
+#win-scr, #lose-scr {
+    opacity: 0.8;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 0px 0px 10px black;
+    flex-direction: column;
+    justify-content: space-around;
+    display: none;
+}
+#win-scr {
+    background-color: rgb(91, 228, 64);
+}
+
+                        /* lose screen */
+#lose-scr {
+    background-color: rgb(211, 26, 26);
+}
+
+
+footer {
+    background-color: rgb(123, 104, 206);
+} 
+
+

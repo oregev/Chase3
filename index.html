@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="replay-container" class="centerIt">
+            <button id="replay" onclick="replayCompTurn()"><i class="fa fa-history"></i></button> 
+        </div>
+        <div id="heading-container" class="centerIt">
+            <h1>CHASE3</h1>
+        </div>
+        <div id="menu-container" class="centerIt">
+            <button id="menu-btn" onclick="toggleMenu(menu)"><i class="fa fa-reorder"></i></button> 
+        </div>
+    </header>
+                                <!-- manu Screen-->
+    <div id="menu">
+        <button class="centerIt" onclick="toggleMenu(about, menu)">ABOUT</button>
+        <hr>
+        <button class="centerIt" onclick="refresh()">RESTART</button>
+        <hr>
+        <button class="centerIt" onclick="toggleMenu(contact, menu)">CONTACT</button>
+    </div>
+    <div id="about">
+        <h2>ABOUT</h2>
+        <br>
+        <p><em>This is the 3rd version of the popular memory game.</em><br>
+            <span>All you have to do is <strong>CHASE</strong> the computer,<br>
+                remember the moves then do the same.<br>
+                if you lose you start over.<br>
+            </span>
+            <br>
+            are you ready ?
+        </p>
+        <button onclick="removeScr(about)"><i class="fa fa-close"></i></button>
+    </div>
+    <div id="contact">
+        <h2>CONTACT</h2>
+        <br>
+        <p>if you liked the game<br>
+        or you wanna suggest an improvment<br>
+    please contact me.</p>
+        <p>Email</p>
+        
+        <button onclick="removeScr(contact)"><i class="fa fa-close"></i></button>
+    </div>
+    <main>
+                                <!-- Start Screen-->
+        <div id="start-scr" class="centerIt">
+            <div id="welcome-msg">
+                <h2>WELCOME<br>TO<br>CHASE</h2>
+                <button id="start-btn" onclick="removeStartScr()">PRESS ME</button>
+            </div>
+        </div>
+
+                                <!-- Choose Screen-->
+        <div id="choser-scr" class="centerIt">
+            <h2>CHOOSE GRID SIZE</h2>
+            <form id="choser-form">
+                <select name="grid-size" id="grid-select">
+                    <option value="2">2 x 2</option>
+                    <option value="3">3 x 3</option>
+                    <option value="4">4 x 4</option>
+                </select>
+            </form>
+            <button id="submit-btn" type="button" onclick="createWorld()">START</button>
+        </div>
+
+                                <!-- Game Screen-->
+        <div id="game-scr" class="centerIt">
+            <main id="game-area" class="centerIt">
+                <div id="ready-scr" class="centerIt">
+                    <p id="ready-msg">NOW<BR>CHASE</p>
+                </div>
+            </main>
+        </div>
+
+                                <!-- Win Screen-->
+        <div id="win-scr" class="centerIt">
+            <h3>YOU<br>WIN</h3>
+            <p id="level"></p>
+        </div>
+
+                                <!-- loose Screen-->
+        <div id="lose-scr" class="centerIt">
+            <h3>YOU<br>LOSE</h3>
+            <p>BACK TO LEVEL<br>1</p>
+        </div>
+    </main>
+
+    <footer class="centerIt">
+        <p>created by: Or Regev</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
