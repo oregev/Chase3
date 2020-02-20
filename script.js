@@ -19,6 +19,7 @@ let sequence, turn, playerTurn, userAnswer; // action
     loseMusic = new Audio('sounds/loseMusic2.mp3');
 
     // layout initialization
+    body = document.getElementById("body");
     startScr = document.getElementById("start-scr");
     menu = document.getElementById("menu");
     about = document.getElementById("about");
@@ -77,6 +78,7 @@ const createSequence = (max = 1) => {
 /* removes the start screen and showes the chose screen */
 const removeStartScr = () => { 
     gameMusic.play();
+    body.requestFullscreen();
     startScr.style.display="none";
     choserScr.style.display="flex";
 }
