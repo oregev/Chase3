@@ -93,7 +93,7 @@ hr {
     
 }
 #about i, #contact i {
-    margin-top: 20px;
+    margin-top: 5px;
     align-self: flex-start;
     background-color: white;
     border-radius: 50%;
@@ -106,6 +106,7 @@ hr {
 }
 #about h2 {
     font-size: 40px;
+    margin-bottom: -10px;
 }
 #contact p {
     font-size: 20px;
