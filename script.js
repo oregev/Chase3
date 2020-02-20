@@ -34,7 +34,7 @@ let sequence, turn, playerTurn, userAnswer; // action
     gameArea = document.getElementById("game-area");
     board = document.createElement("DIV");
     board.setAttribute("id", "board");
-    compMoveColor = "rgb(123, 104, 206)";
+    compMoveColor = " rgb(83, 71, 255)" ;
     playMoveColor = "pink";
 
     init();
