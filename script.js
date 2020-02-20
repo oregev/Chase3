@@ -78,7 +78,7 @@ const createSequence = (max = 1) => {
 /* removes the start screen and showes the chose screen */
 const removeStartScr = () => { 
     gameMusic.play();
-    body.requestFullscreen();
+    // body.requestFullscreen();
     startScr.style.display="none";
     choserScr.style.display="flex";
 }
