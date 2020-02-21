@@ -4,6 +4,11 @@
     The 3rd generation memory
     game chase.
 */
+document.fullscreenEnabled =
+	document.fullscreenEnabled ||
+	document.mozFullScreenEnabled ||
+	document.documentElement.webkitRequestFullScreen;
+
 
 addEventListener("click", function() {
     var el = document.documentElement,
