@@ -228,9 +228,13 @@ const runGame = async() => {
 const createWorld = () => {
     choserScr.style.display="none";
     gameScr.style.display="flex";
-    gridWidth = parseInt(document.getElementById('grid-select').value);
-    // console.log(document.getElementById("choser-form"));
-    // console.log(document.getElementsByClassName("selector"));
+    let gridWidth = 0;
+    let selector = document.getElementsByClassName("selector");
+    for(let i = 0; i < selector.length; i++) {
+        if(selector[i].checked) {
+            gridWidth = parseInt(selector[i].value);
+        }
+    }
     switch(gridWidth) {
         case 2: {
             boardSize = 4; break;

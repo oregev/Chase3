@@ -63,8 +63,7 @@ main {
     width: 200px;
     padding: 5px;
     background-color:  rgb(109, 175, 170);
-    border: 5px solid teal;
-    
+    border: 5px solid teal;    
 }
 #menu button {
     width: 100%;
@@ -93,8 +92,7 @@ hr {
     border: 5px solid #666;
     text-align: center;
     line-height: 1.5;
-    display: none;
-    
+    display: none;  
 }
 #about i, #contact i {
     margin-top: 5px;
@@ -191,8 +189,7 @@ hr {
     background-size: cover;
     border: 5px solid #666;
     display: none;
-    flex-direction: column;
-    
+    flex-direction: column;   
 }
 #choser-scr h2 {
     margin-top: 20px;
@@ -202,50 +199,36 @@ hr {
 #choser-form {
     width: 100%;
     height: 100px;
-    margin: 20px;
-    
+    margin: 20px;  
 }
 #grid-select {
     margin-bottom: 20px;
     font-size: 2rem;
     width: 70%;
     height: 100px;
-    appearance: none; 
-    /* background-color: tomato;  */
+    appearance: none;
+    margin: auto;
 }
-/* .selector {
+.select-container {
     width: 33%;
-    flex-direction: column;
+    flex-direction: column;   
 }
-.selector input {
-    
+.select-container input { 
     transform: scale(2);
 }
-.selector label {
+.select-container label {
     margin-top: 20px;
     color: white;
     text-shadow: 0px 0px 2px black;
-} */
+}
 #grid-select:focus {
     outline: none;
 }
-
 #submit-btn {
     font-size: 2rem;
     width: 80%;
     height: 50px;
 }
-/* @keyframes btn2 {
-    0% {
-        width: 80%;
-        height: 50px; 
-    }
-    50% {
-        width: 85%;
-        height: 55px; 
-    }
-} */
-
 
 
                         /* Game screen */
@@ -292,7 +275,6 @@ hr {
     border: 5px solid #666;
     border-radius: 10%;
 }
-
                         /* win screen */
 #win-scr, #lose-scr {
     opacity: 0.8;
@@ -322,6 +304,11 @@ footer h3 {
     line-height: 2;
     font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 800px) {
+    .select-container label {
+        font-size: 1.5rem;
+    }
 
 @media only screen and (min-width: 800px) {
     #board {
@@ -358,7 +345,6 @@ footer h3 {
         width: 80vw;
         height: 100vh;
     }
-
     footer {
         position: static;
         width: 10vw;
@@ -370,9 +356,6 @@ footer h3 {
     footer h3 {
         display: block;
     }
-    
-    
-    
     #start-scr {
         flex-direction: row;
     }
