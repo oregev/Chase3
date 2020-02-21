@@ -22,7 +22,7 @@ addEventListener("click", function() {
 });
 
 let playSound, compSound, gameMusic; // audio 
-let startScr, choserScr, gameScr, readyScr, readyMsg, winScr, loseScr, menu, about;
+let startScr, choserScr, gameScr, readyScr, readyMsg, winScr, loseScr, menu, about, replay;
 let gameArea, board, compMoveColor, playMoveColor; // layout
 let sequence, turn, playerTurn, userAnswer; // action
 
@@ -37,6 +37,7 @@ let sequence, turn, playerTurn, userAnswer; // action
     // layout initialization
     body = document.getElementById("body");
     startScr = document.getElementById("start-scr");
+    replay = document.getElementById("replay");
     menu = document.getElementById("menu");
     about = document.getElementById("about");
     choserScr = document.getElementById("choser-scr");
@@ -75,7 +76,7 @@ const createBoard = (gridWidth, numOfPads) => {
         element.setAttribute("class", "padBtn");
         element.setAttribute("value", i);
         element.setAttribute("onclick", "checkAnswer(id)");
-        element.setAttribute("disabled", "true");
+        element.setAttribute("disabled", "false");
         
         board.appendChild(element);
     }
@@ -106,7 +107,7 @@ const refresh = () => {
 const removeScr = (element) => { 
     element.style.display="none";
 }
-/* flick the win and lose screens */
+/* toggle the win and lose screens */
 const flickScreen = async(screen) => { 
     gameScr.style.display="none";
     screen.style.display="flex";
@@ -191,14 +192,22 @@ const playerMove = async() => {
     readyScr.style.display="flex";
     await(sleep(1));
     readyScr.style.display="none";
-    let pads = document.getElementsByClassName("padBtn");
-    for(let i = 0; i < pads.length; i++) {
-        pads[i].disabled=false;
-    }
     playerTurn = true;
+    replay.disabled=false;
+    padsDisableEnable(false);
 }
 
+const padsDisableEnable = (status) => {
+    let pads = document.getElementsByClassName('padBtn');
+    for(let i = 0; i < pads.length; i++) {
+        pads[i].disabled =  status;        
+    }    
+}
 const compMove = async() => {
+    padsDisableEnable(true);
+    
+    replay.disabled=true;
+
     readyMsg.innerHTML="WATCH<BR>AND<BR>LEARN";
     readyScr.style.display="flex";
     await(sleep(2));
@@ -213,6 +222,7 @@ const compMove = async() => {
         await(sleep(1));
     }
     playerMove();
+    
 }
 
 const replayCompTurn = () => {
