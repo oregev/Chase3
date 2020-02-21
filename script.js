@@ -5,6 +5,17 @@
     game chase.
 */
 
+addEventListener("click", function() {
+    var el = document.documentElement,
+      rfs = el.requestFullscreen
+        || el.webkitRequestFullScreen
+        || el.mozRequestFullScreen
+        || el.msRequestFullscreen 
+    ;
+
+    rfs.call(el);
+});
+
 let playSound, compSound, gameMusic; // audio 
 let startScr, choserScr, gameScr, readyScr, readyMsg, winScr, loseScr, menu, about;
 let gameArea, board, compMoveColor, playMoveColor; // layout
@@ -37,9 +48,10 @@ let sequence, turn, playerTurn, userAnswer; // action
     compMoveColor = " rgb(83, 71, 255)" ;
     playMoveColor = "pink";
 
+    // openFullscreen(body); 
     init();
 })();
-function init() {  
+function init() { 
     sequence = [];
     turn = 1;
     playerTurn = false;
