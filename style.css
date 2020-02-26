@@ -47,6 +47,20 @@ h1 {
     color: white;
     transform: scale(1.6);
 }
+#audio-control {
+    position: absolute;
+    bottom: 22px;
+    left: 30px;
+    color: white;
+}
+#audio-control i {
+    transform: scale(2);
+}
+#playIcon {
+    display: none;
+}
+
+
 main {
     height: 80vh;
     display: flex;
@@ -297,6 +311,7 @@ hr {
 
 footer {
     background-color: rgb(123, 104, 206);
+    /* align-content: space-between; */
 } 
 footer h3 {
     display: none;
@@ -330,6 +345,10 @@ footer h3 {
     }
     header h1 {
         display: none;
+    }
+    #audio-control {
+        top: 50%;
+        left: 20px;
     }
     #menu {
         left: 12vw;

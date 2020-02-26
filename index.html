@@ -27,6 +27,10 @@
             <button id="menu-btn" onclick="toggleMenu(menu)"><i class="fa fa-reorder"></i></button> 
         </div>
     </header>
+    <div id="audio-control">
+        <i id="pauseIcon" class="fa fa-pause" onclick="toggleMusic()"></i>
+        <i id="playIcon" class="fa fa-play" onclick="toggleMusic()"></i>
+    </div>
                                 <!-- manu Screen-->
     <div id="menu">
         <button class="centerIt" onclick="toggleMenu(about, menu)">ABOUT</button>
@@ -114,10 +118,12 @@
     </main>
 
     <footer class="centerIt">
-        <p>created by: Or Regev</p>
-        <h3>
-            C<br>H<br>A<br>S<br>E<br>3
-        </h3>
+        <div>
+            <p>created by: Or Regev</p>
+        </div>
+        <div>
+            <h3>C<br>H<br>A<br>S<br>E<br>3</h3>
+        </div>
     </footer>
 
     <script src="script.js"></script>

@@ -42,13 +42,18 @@ const levelElem = document.getElementById("levelElem");
 const gameArea = document.getElementById("game-area");
 const compMoveColor = "deeppink";
 const playMoveColor = "darkgoldenrod"
-
-let boardSize, board, sequence, turn, playerTurn, userAnswer; // action
+const pauseIcon = document.getElementById("pauseIcon");
+const playIcon = document.getElementById('playIcon');
+let boardSize, board, sequence; 
+let turn, playerTurn, userAnswer;
+let playMusic; // action
 
 (function initialization() { // runs automatic as the page loads
     boardSize = 0;
     board = document.createElement("DIV");
+    
     board.setAttribute("id", "board");
+    
     gameReset();
 })();
 
@@ -59,6 +64,23 @@ function gameReset() { // runs every new game
     userAnswer = [];
 };
 
+const toggleMusic = () => {
+    if(playMusic) {
+        //compSound.stop();
+        //playSound.stop();
+        gameMusic.pause();
+        //winMusic.stop();
+        //loseMusic.stop();
+        //gameMusic.stop();
+        pauseIcon.style.display = "none";
+        playIcon.style.display = "block";
+        playMusic = false;
+    } else {
+        playMusic = true;
+        pauseIcon.style.display = "block";
+        playIcon.style.display = "none";
+    }
+} 
 
 /* creates the pads on the board */
 const createBoard = (gridWidth, numOfPads) => {
@@ -91,6 +113,7 @@ const createSequence = (max = 1) => {
 /* removes the start screen and showes the chose screen */
 const removeStartScr = () => { 
     gameMusic.play();
+    playMusic = true;
     startScr.style.display="none";
     choserScr.style.display="flex";
 }
@@ -133,7 +156,7 @@ const sleep = (sec) => {
 const flickPad = async(padName) => {
     const originalColor = padName.style.backgroundColor;
     const moveColor = playerTurn ? playMoveColor : compMoveColor
-    if(!playerTurn) {
+    if(!playerTurn && playMusic) {
         compSound.play();
     }   
     padName.style.backgroundColor = moveColor;
@@ -151,7 +174,9 @@ const flickBoard = async() => {
 }
 
 const checkAnswer = async(padName) => {
-    playSound.play();
+    if(playMusic) {
+        playSound.play();
+    }
     const pad = document.getElementById(padName);
     flickPad(pad);
     userAnswer.push(parseInt(pad.value));
@@ -206,7 +231,9 @@ const compMove = async() => {
     readyMsg.innerHTML = "WATCH<BR>AND<BR>LEARN";
     readyScr.style.display = "flex";
     await(sleep(2));
-    gameMusic.play();
+    if(playMusic) {
+        gameMusic.play();
+    }
     readyScr.style.display = "none";
     readyMsg.innerHTML = "NOW<BR>CHASE";
     await(sleep(1));
