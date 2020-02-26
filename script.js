@@ -250,7 +250,7 @@ const createWorld = () => {
             boardSize = 16; break;
         } 
         default: {
-            alert('problem!');
+            window.location.reload();
         }
     }
     createBoard(gridWidth, boardSize);
