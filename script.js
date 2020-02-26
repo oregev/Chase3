@@ -66,16 +66,17 @@ function gameReset() { // runs every new game
 
 const toggleMusic = () => {
     if(playMusic) {
-        //compSound.stop();
-        //playSound.stop();
+        compSound.pause();
+        playSound.pause();
         gameMusic.pause();
-        //winMusic.stop();
-        //loseMusic.stop();
-        //gameMusic.stop();
+        winMusic.pause();
+        loseMusic.pause();
+        gameMusic.pause();
         pauseIcon.style.display = "none";
         playIcon.style.display = "block";
         playMusic = false;
     } else {
+        gameMusic.play();
         playMusic = true;
         pauseIcon.style.display = "block";
         playIcon.style.display = "none";
