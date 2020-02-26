@@ -40,7 +40,7 @@ const loseScr = document.getElementById("lose-scr");
 const replayElem = document.getElementById("replayElem");
 const levelElem = document.getElementById("levelElem");
 const gameArea = document.getElementById("game-area");
-const compMoveColor = "coral";
+const compMoveColor = "deeppink";
 const playMoveColor = "darkgoldenrod"
 
 let boardSize, board, sequence, turn, playerTurn, userAnswer; // action
@@ -137,7 +137,7 @@ const flickPad = async(padName) => {
         compSound.play();
     }   
     padName.style.backgroundColor = moveColor;
-    await(sleep(0.2));
+    await(sleep(0.3));
     padName.style.backgroundColor = originalColor;
 }
 
@@ -250,7 +250,7 @@ const createWorld = () => {
             boardSize = 16; break;
         } 
         default: {
-            window.location.reload();
+            alert('problem!');
         }
     }
     createBoard(gridWidth, boardSize);
