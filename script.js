@@ -191,7 +191,9 @@ const checkAnswer = async(padName) => {
             levelElem.innerHTML = ("LEVEL: " + turn);
             flickScreen(winScr);
             gameMusic.pause();
-            winMusic.play();
+            if(playMusic) {
+                winMusic.play();
+            }
             await(sleep(3));
             runGame();
         }
@@ -199,7 +201,9 @@ const checkAnswer = async(padName) => {
     else {
         flickScreen(loseScr);
         gameMusic.pause();
-        loseMusic.play();
+        if(playMusic) {
+            loseMusic.play();
+        }
         await(sleep(0.8));
         gameReset();
         await(sleep(0.8));
