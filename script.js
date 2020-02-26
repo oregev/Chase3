@@ -1,14 +1,17 @@
 /* 
     Chase3 game
     --------------
-    The 3rd generation memory
-    game chase.
+    The 3rd generation memory game chase.
+    
+    * every time a variable name contains Elem this means
+    it is an HTML Element.
 */
+
+
 document.fullscreenEnabled =
 	document.fullscreenEnabled ||
 	document.mozFullScreenEnabled ||
 	document.documentElement.webkitRequestFullScreen;
-
 
 addEventListener("click", function() {
     var el = document.documentElement,
@@ -17,47 +20,39 @@ addEventListener("click", function() {
         || el.mozRequestFullScreen
         || el.msRequestFullscreen 
     ;
-
     rfs.call(el);
 });
+// Sounds initialization // MAYBE LOAD ARRAY OF SOUNDS TO USE IN THE GAME ???
+const compSound = new Audio('sounds/padSound1.mp3');
+const playSound = new Audio('sounds/frog.mp3');
+const gameMusic = new Audio('sounds/gameMusic2.mp3');
+const winMusic = new Audio('sounds/winMusic2.mp3');
+const loseMusic = new Audio('sounds/loseMusic2.mp3');
 
-let playSound, compSound, gameMusic; // audio 
-let startScr, choserScr, gameScr, readyScr, readyMsg, winScr, loseScr, menu, about, replay;
-let gameArea, board, compMoveColor, playMoveColor; // layout
-let sequence, turn, playerTurn, userAnswer; // action
+// layout initialization
+const startScr = document.getElementById("start-scr");
+const choserScr = document.getElementById("choser-scr");
+const gameScr = document.getElementById("game-scr");
+const readyScr = document.getElementById("ready-scr");
+const readyMsg = document.getElementById("ready-msg");
+const winScr = document.getElementById("win-scr");
+const loseScr = document.getElementById("lose-scr");
+const replayElem = document.getElementById("replayElem");
+const levelElem = document.getElementById("levelElem");
+const gameArea = document.getElementById("game-area");
+const compMoveColor = "coral";
+const playMoveColor = "darkgoldenrod"
 
-(function initialization() {
-    // Sounds initialization // MAYBE LOAD ARRAY OF SOUNDS TO USE IN THE GAME ???
-    compSound = new Audio('sounds/padSound1.mp3');
-    playSound = new Audio('sounds/frog.mp3');
-    gameMusic = new Audio('sounds/gameMusic2.mp3');
-    winMusic = new Audio('sounds/winMusic2.mp3');
-    loseMusic = new Audio('sounds/loseMusic2.mp3');
+let boardSize, board, sequence, turn, playerTurn, userAnswer; // action
 
-    // layout initialization
-    body = document.getElementById("body");
-    startScr = document.getElementById("start-scr");
-    replay = document.getElementById("replay");
-    menu = document.getElementById("menu");
-    about = document.getElementById("about");
-    choserScr = document.getElementById("choser-scr");
-    gameScr = document.getElementById("game-scr");
-    readyScr = document.getElementById("ready-scr");
-    readyMsg = document.getElementById("ready-msg");
-    winScr = document.getElementById("win-scr");
-    level = document.getElementById("level");
-    loseScr = document.getElementById("lose-scr");
+(function initialization() { // runs automatic as the page loads
     boardSize = 0;
-    gameArea = document.getElementById("game-area");
     board = document.createElement("DIV");
     board.setAttribute("id", "board");
-    compMoveColor = " rgb(83, 71, 255)" ;
-    playMoveColor = "pink";
-
-    // openFullscreen(body); 
-    init();
+    gameReset();
 })();
-function init() { 
+
+function gameReset() { // runs every new game
     sequence = [];
     turn = 1;
     playerTurn = false;
@@ -67,8 +62,8 @@ function init() {
 
 /* creates the pads on the board */
 const createBoard = (gridWidth, numOfPads) => {
-    let gridColumnWidth = ("1fr ").repeat(gridWidth); // creates the grid-template-column
-    board.style.gridTemplateColumns=gridColumnWidth;
+    const gridColumnWidth = ("1fr ").repeat(gridWidth); // creates the grid-template-column
+    board.style.gridTemplateColumns = gridColumnWidth;
 
     for(let i = 0; i < numOfPads; i++) { // creates the pads
         let element = document.createElement("BUTTON");
@@ -107,6 +102,7 @@ const refresh = () => {
 const removeScr = (element) => { 
     element.style.display="none";
 }
+
 /* toggle the win and lose screens */
 const flickScreen = async(screen) => { 
     gameScr.style.display="none";
@@ -116,11 +112,11 @@ const flickScreen = async(screen) => {
     gameScr.style.display="flex";
 }
 
-const toggleMenu = (element, close) => {
+const toggleMenu = (element, toClose) => {
     if(element.style.display === "none") {
         element.style.display="block";
-        if(close != undefined) {
-            close.style.display="none";
+        if(toClose != undefined) {
+            toClose.style.display="none";
         }
     } else {
         element.style.display="none";
@@ -135,28 +131,28 @@ const sleep = (sec) => {
 
 /* changes the color of the pad */
 const flickPad = async(padName) => {
-    let originalColor = padName.style.backgroundColor;
-    let moveColor = playerTurn ? playMoveColor : compMoveColor
+    const originalColor = padName.style.backgroundColor;
+    const moveColor = playerTurn ? playMoveColor : compMoveColor
     if(!playerTurn) {
         compSound.play();
     }   
-    padName.style.backgroundColor=moveColor;
+    padName.style.backgroundColor = moveColor;
     await(sleep(0.2));
-    padName.style.backgroundColor=originalColor;
+    padName.style.backgroundColor = originalColor;
 }
 
 /* flicks the borad for correct answer */
 const flickBoard = async() => {
-    let originalColor = board.style.backgroundColor;
-    let correctColor = "lightgreen"
-    board.style.backgroundColor=correctColor;
+    const originalColor = board.style.backgroundColor;
+    const correctColor = "lightgreen";
+    board.style.backgroundColor = correctColor;
     await(sleep(0.2));
-    board.style.backgroundColor=originalColor;
+    board.style.backgroundColor = originalColor;
 }
 
 const checkAnswer = async(padName) => {
     playSound.play();
-    let pad = document.getElementById(padName);
+    const pad = document.getElementById(padName);
     flickPad(pad);
     userAnswer.push(parseInt(pad.value));
     partOfSeq = sequence.slice(0, userAnswer.length);
@@ -166,22 +162,20 @@ const checkAnswer = async(padName) => {
         if(userAnswer.length === sequence.length) {
             await(sleep(1));
             turn += 1;
-            level.innerHTML=("LEVEL: " + turn);
+            levelElem.innerHTML = ("LEVEL: " + turn);
             flickScreen(winScr);
             gameMusic.pause();
             winMusic.play();
-            //Audio.play() // WINING MUSIC
             await(sleep(3));
             runGame();
         }
-    }
-    
+    }  
     else {
         flickScreen(loseScr);
         gameMusic.pause();
         loseMusic.play();
         await(sleep(0.8));
-        init();
+        gameReset();
         await(sleep(0.8));
         runGame();
     }
@@ -189,11 +183,11 @@ const checkAnswer = async(padName) => {
 
 const playerMove = async() => {
     userAnswer = [];
-    readyScr.style.display="flex";
+    readyScr.style.display = "flex";
     await(sleep(1));
-    readyScr.style.display="none";
+    readyScr.style.display = "none";
     playerTurn = true;
-    replay.disabled=false;
+    replayElem.disabled = false;
     padsDisableEnable(false);
 }
 
@@ -203,21 +197,22 @@ const padsDisableEnable = (status) => {
         pads[i].disabled =  status;        
     }    
 }
+
 const compMove = async() => {
     padsDisableEnable(true);
     
-    replay.disabled=true;
+    replayElem.disabled = true;
 
-    readyMsg.innerHTML="WATCH<BR>AND<BR>LEARN";
-    readyScr.style.display="flex";
+    readyMsg.innerHTML = "WATCH<BR>AND<BR>LEARN";
+    readyScr.style.display = "flex";
     await(sleep(2));
     gameMusic.play();
-    readyScr.style.display="none";
-    readyMsg.innerHTML="NOW<BR>CHASE";
+    readyScr.style.display = "none";
+    readyMsg.innerHTML = "NOW<BR>CHASE";
     await(sleep(1));
     playerTurn = false;
     for(let i = 0; i < sequence.length; i++) {
-        let padName = "pad" + (sequence[i]);
+        const padName = "pad" + (sequence[i]);
         flickPad(document.getElementById(padName));
         await(sleep(1));
     }
@@ -232,14 +227,13 @@ const replayCompTurn = () => {
 const runGame = async() => {
     createSequence(boardSize);
     compMove();
-    
 }
 
 const createWorld = () => {
     choserScr.style.display="none";
     gameScr.style.display="flex";
     let gridWidth = 0;
-    let selector = document.getElementsByClassName("selector");
+    const selector = document.getElementsByClassName("selector");
     for(let i = 0; i < selector.length; i++) {
         if(selector[i].checked) {
             gridWidth = parseInt(selector[i].value);

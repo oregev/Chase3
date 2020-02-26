@@ -1,6 +1,6 @@
 #preload-01 { background-image: url("images/choosebg.png");}
 #preload-02 { background-image: url("images/choosebg.png");}
-#preload-03 { background-image: url("images/gamebg.jpg");;}
+#preload-03 { background-image: url("images/gamebg.jpg");}
 
 * {
     margin: 0;
@@ -41,7 +41,7 @@ h1 {
     width: 33.3%;
     height: 100%;
 }
-#replay, #replay i, #menu-btn, #menu-btn i {
+#replayElem, #replayElem i, #menu-btn, #menu-btn i {
     background-color: transparent;
     border: none;
     color: white;
@@ -309,7 +309,7 @@ footer h3 {
     .select-container label {
         font-size: 1.5rem;
     }
-
+}
 @media only screen and (min-width: 800px) {
     #board {
         width: 90%;
@@ -340,7 +340,7 @@ footer h3 {
     }
     #about p, #contact p {
         font-size: 0.8rem;
-      }
+    }
     #start-scr, #choser-scr, #game-scr, #win-scr, #lose-scr {
         width: 80vw;
         height: 100vh;
@@ -359,7 +359,7 @@ footer h3 {
     #start-scr {
         flex-direction: row;
     }
-    #welcome-msg h2{
+    #welcome-msg h2 {
         font-size: 2rem;
     }
 }
