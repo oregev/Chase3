@@ -150,7 +150,7 @@ const flickPad = async(padName) => {
     padName.style.backgroundColor = originalColor;
 }
 
-/* flicks the borad for correct answer */
+/* flicks the board for correct answer */
 const flickBoard = async() => {
     const originalColor = board.style.backgroundColor;
     const correctColor = "lightgreen";
