@@ -7,21 +7,6 @@
     it is an HTML Element.
 */
 
-
-document.fullscreenEnabled =
-	document.fullscreenEnabled ||
-	document.mozFullScreenEnabled ||
-	document.documentElement.webkitRequestFullScreen;
-
-addEventListener("click", function() {
-    var el = document.documentElement,
-      rfs = el.requestFullscreen
-        || el.webkitRequestFullScreen
-        || el.mozRequestFullScreen
-        || el.msRequestFullscreen 
-    ;
-    rfs.call(el);
-});
 // Sounds initialization // MAYBE LOAD ARRAY OF SOUNDS TO USE IN THE GAME ???
 const compSound = new Audio('sounds/padSound1.mp3');
 const playSound = new Audio('sounds/frog.mp3');
