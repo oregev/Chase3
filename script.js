@@ -6,13 +6,18 @@
     * every time a variable name contains Elem this means
     it is an HTML Element.
 */
-
+console.log(document);
 // Sounds initialization // MAYBE LOAD ARRAY OF SOUNDS TO USE IN THE GAME ???
-const compSound = new Audio('sounds/padSound1.mp3');
-const playSound = new Audio('sounds/frog.mp3');
-const gameMusic = new Audio('sounds/gameMusic2.mp3');
-const winMusic = new Audio('sounds/winMusic2.mp3');
-const loseMusic = new Audio('sounds/loseMusic2.mp3');
+// const compSound = new Audio('sounds/padSound1.mp3');
+// const playSound = new Audio('sounds/frog.mp3');
+// const gameMusic = new Audio('sounds/gameMusic2.mp3');
+// const winMusic = new Audio('sounds/winMusic2.mp3');
+// const loseMusic = new Audio('sounds/loseMusic2.mp3');
+const compSound = new Audio(document.getElementById("compSound").src);
+const playSound = new Audio(document.getElementById("playMusic").src);
+const gameMusic = new Audio(document.getElementById("gameMusic").src);
+const winMusic = new Audio(document.getElementById("winMusic").src);
+const loseMusic = new Audio(document.getElementById("loseMusic").src);
 
 // layout initialization
 const startScr = document.getElementById("start-scr");
@@ -150,7 +155,7 @@ const flickPad = async(padName) => {
     padName.style.backgroundColor = originalColor;
 }
 
-/* flicks the board for correct answer */
+/* flicks the borad for correct answer */
 const flickBoard = async() => {
     const originalColor = board.style.backgroundColor;
     const correctColor = "lightgreen";
@@ -179,7 +184,7 @@ const checkAnswer = async(padName) => {
             if(playMusic) {
                 winMusic.play();
             }
-            await(sleep(3));
+            await(sleep(2.5));
             runGame();
         }
     }  

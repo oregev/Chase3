@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-159257374-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-159257374-1');
-</script>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159257374-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-159257374-1');
+    </script>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <audio preload ="none" src="">
-        <source src="sounds/gameMusic2.mp3" type="audio/mp3">
-        <source src="sounds/frog.mp3" type="audio/mp3">
-        <source src="ounds/padSound1" type="audio/mp3">
-        <source src="sounds/winMusic2" type="audio/mp3">
-        <source src="sounds/loseMusic2" type="audio/mp3">
+    <audio preload="meta">
+        <source id="gameMusic" src="sounds/gameMusic2.mp3" type="audio/mp3">
+        <source id="compSound" src="sounds/frog.mp3" type="audio/mp3">
+        <source id="playMusic" src="sounds/padSound1.mp3" type="audio/mp3">
+        <source id="winMusic" src="sounds/winMusic2.mp3" type="audio/mp3">
+        <source id="loseMusic" src="sounds/loseMusic2.mp3" type="audio/mp3">
     </audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
@@ -78,7 +76,7 @@
             <div id="welcome-msg">
                 <h2>WELCOME<br>TO<br>CHASE</h2>     
             </div>
-            <div>
+            <div id="start-btn-container">
                 <button id="start-btn" onclick="removeStartScr()"><i class="fa fa-caret-right"></i></button>
             </div>
         </div>
@@ -102,7 +100,9 @@
                     </div> 
                 </div>
             </form>
-            <button id="start-btn" onclick="createWorld()"><i class="fa fa-caret-right"></i></button>
+            <div id="start-btn-container">
+                <button id="start-btn" onclick="createWorld()"><i class="fa fa-caret-right"></i></button>
+            </div>
         </div>
 
                                 <!-- Game Screen-->
